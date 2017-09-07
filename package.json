@@ -15,5 +15,9 @@
     "javascript"
   ],
   "author": "Paolo Carrara",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "querystring": "^0.2.0"
+  }
 }
