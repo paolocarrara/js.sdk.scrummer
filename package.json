@@ -1,0 +1,19 @@
+{
+  "name": "js.sdk.scrummer",
+  "version": "1.0.0",
+  "description": "Scrummer Javascript SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scrummer",
+    "sdk",
+    "node",
+    "npm",
+    "js",
+    "javascript"
+  ],
+  "author": "Paolo Carrara",
+  "license": "ISC"
+}
