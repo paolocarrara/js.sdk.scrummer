@@ -8,8 +8,10 @@ module.exports = (function () {
     console.log('Hello');
   }
 
-  var register = function (email = '', password = '') {
+  var register = function (firstname = '', surname = '', email = '', password = '') {
     let data = {
+      firstname: firstname,
+      surname: surname,
       email: email,
       password: password
     }
