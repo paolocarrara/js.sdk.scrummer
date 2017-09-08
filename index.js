@@ -18,14 +18,24 @@ module.exports = (function () {
   }
 
   /**
+   * Do a get request to the given url with the given data.
    *
+   * @param url Url to send the request.
+   * @param data Data to be sent as query string.
+   *
+   * @return Promise.
    */
   var get = function (url = '', data = {}) {
     return axios.get(url + querystring.stringfy(data))
   }
 
   /**
+   * Do a post request to the given url with the given data.
    *
+   * @param url Url to send the request.
+   * @param data Data to be sent.
+   *
+   * @return Promise.
    */
   var post = function (url = '', data = {}) {
     return axios.post(url, data);
