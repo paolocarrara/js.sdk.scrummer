@@ -3,7 +3,7 @@ module.exports = (function () {
   const querystring = require('querystring');
   const url = 'http://localhost:8000/api';
   const userEndPoint = '/user';
-  const taskEndPoint = '/task';
+  const taskEndPoint = '/tasks';
 
   var hello = function () {
     console.log('Hello');
