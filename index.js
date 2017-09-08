@@ -3,6 +3,7 @@ module.exports = (function () {
   const querystring = require('querystring');
   const url = 'http://localhost:8000/api';
   const userEndPoint = '/user';
+  const taskEndPoint = '/task';
 
   var hello = function () {
     console.log('Hello');
@@ -27,6 +28,26 @@ module.exports = (function () {
 
     return post(url + userEndPoint + '/login', data);
   }
+
+  var tasks = (function (outerThis) {
+    /**
+     * Creates a task.
+     * @param description Task's description.
+     *
+     * @return Promise.
+     */
+    var create = function (description = '') {
+      let data = {
+        description: description
+      }
+
+      return post(url + taskEndPoint, data);
+    }
+
+    return {
+      create: create
+    }
+  })()
 
   /**
    * Do a get request to the given url with the given data.
@@ -55,6 +76,7 @@ module.exports = (function () {
   return {
     hello: hello,
     register: register,
-    login: login
+    login: login,
+    tasks: tasks
   }
 })()
