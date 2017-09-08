@@ -1,7 +1,7 @@
 module.exports = (function () {
   const axios = require('axios');
   const querystring = require('querystring');
-  const url = 'http://localhost:8000';
+  const url = 'http://localhost:8000/api';
   const userEndPoint = '/user';
 
   var hello = function () {
