@@ -49,6 +49,13 @@ module.exports = (function () {
     }
   })()
 
+  axios.interceptors.request.use(function (config) {
+    config.headers = { Authorization: 'Bearer ' + window.localStorage.getItem('scrummer.user-token') };
+    return config;
+  }, function (error) {
+    return Promise.reject(error);
+  });
+
   /**
    * Do a get request to the given url with the given data.
    *
