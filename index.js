@@ -14,9 +14,18 @@ module.exports = (function () {
       surname: surname,
       email: email,
       password: password
-    }
+    };
 
     return post(url + userEndPoint, data);
+  }
+
+  var login = function (email = '', password = '') {
+    let data = {
+      email: email,
+      password: password
+    };
+
+    return post(url + userEndPoint + '/login', data);
   }
 
   /**
@@ -45,6 +54,7 @@ module.exports = (function () {
 
   return {
     hello: hello,
-    register: register
+    register: register,
+    login: login
   }
 })()
