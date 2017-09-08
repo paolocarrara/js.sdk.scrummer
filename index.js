@@ -50,7 +50,9 @@ module.exports = (function () {
   })()
 
   axios.interceptors.request.use(function (config) {
-    config.headers = { Authorization: 'Bearer ' + window.localStorage.getItem('scrummer.user-token') };
+    config.headers = {
+      'Authorization': 'Bearer ' + (window.localStorage.getItem('scrummer.user-token')).replace(/\"/g, '')
+    }
     return config;
   }, function (error) {
     return Promise.reject(error);
