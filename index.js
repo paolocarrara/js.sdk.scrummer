@@ -44,8 +44,17 @@ module.exports = (function () {
       return post(url + taskEndPoint, data);
     }
 
+    var list = function () {
+      let data = {
+
+      }
+
+      return get(url + taskEndPoint, data);
+    }
+
     return {
-      create: create
+      create: create,
+      list: list
     }
   })()
 
@@ -67,7 +76,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var get = function (url = '', data = {}) {
-    return axios.get(url + querystring.stringfy(data))
+    return axios.get(url + querystring.stringify(data))
   }
 
   /**
