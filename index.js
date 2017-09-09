@@ -57,7 +57,7 @@ module.exports = (function () {
 
       }
 
-      return remove(url + taskEndPoint + '/' + id, data);
+      return del(url + taskEndPoint + '/' + id, data);
     }
 
     return {
@@ -108,7 +108,7 @@ module.exports = (function () {
    *
    * @return Promise.
    */
-  var remove = function (url = '', data = {}) {
+  var del = function (url = '', data = {}) {
     return axios.delete(url);
   }
 
