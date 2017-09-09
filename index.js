@@ -52,18 +52,18 @@ module.exports = (function () {
       return get(url + taskEndPoint, data);
     }
 
-    var delete = function (id = '') {
+    var remove = function (id = '') {
       let data = {
 
       }
 
-      return delete(url + taskEndPoint + '/' + id, data);
+      return remove(url + taskEndPoint + '/' + id, data);
     }
 
     return {
       create: create,
       list: list,
-      delete: delete
+      remove: remove
     }
   })()
 
@@ -108,7 +108,7 @@ module.exports = (function () {
    *
    * @return Promise.
    */
-  var delete = function (url = '', data = {}) {
+  var remove = function (url = '', data = {}) {
     return axios.delete(url);
   }
 
