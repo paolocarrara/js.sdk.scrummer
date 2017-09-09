@@ -68,11 +68,20 @@ module.exports = (function () {
       return _put(url + taskEndPoint + '/' + id, data);
     }
 
+    var start = function (id = '') {
+      let data = {
+
+      }
+
+      return _post(url + taskEndPoint + '/' + id + '/plays', data);
+    }
+
     return {
       create: create,
       list: list,
       remove: remove,
-      update: update
+      update: update,
+      start: start
     }
   })()
 
