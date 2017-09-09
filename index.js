@@ -130,7 +130,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _put = function (url = '', data = {}) {
-    return axios.update(url, data);
+    return axios.put(url, data);
   }
 
   return {
