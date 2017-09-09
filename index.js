@@ -76,12 +76,21 @@ module.exports = (function () {
       return _post(url + taskEndPoint + '/' + id + '/plays', data);
     }
 
+    var stop = function (id = '') {
+      let data = {
+
+      }
+
+      return _put(url + taskEndPoint + '/' + id + '/plays', data);
+    }
+
     return {
       create: create,
       list: list,
       remove: remove,
       update: update,
-      start: start
+      start: start,
+      stop: stop
     }
   })()
 
