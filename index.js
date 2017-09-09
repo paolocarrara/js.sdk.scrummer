@@ -17,7 +17,7 @@ module.exports = (function () {
       password: password
     };
 
-    return post(url + userEndPoint, data);
+    return _post(url + userEndPoint, data);
   }
 
   var login = function (email = '', password = '') {
@@ -26,7 +26,7 @@ module.exports = (function () {
       password: password
     };
 
-    return post(url + userEndPoint + '/login', data);
+    return _post(url + userEndPoint + '/login', data);
   }
 
   var tasks = (function (outerThis) {
@@ -41,7 +41,7 @@ module.exports = (function () {
         description: description
       }
 
-      return post(url + taskEndPoint, data);
+      return _post(url + taskEndPoint, data);
     }
 
     var list = function () {
@@ -49,7 +49,7 @@ module.exports = (function () {
 
       }
 
-      return get(url + taskEndPoint, data);
+      return _get(url + taskEndPoint, data);
     }
 
     var remove = function (id = '') {
@@ -57,13 +57,22 @@ module.exports = (function () {
 
       }
 
-      return del(url + taskEndPoint + '/' + id, data);
+      return _delete(url + taskEndPoint + '/' + id, data);
+    }
+
+    var update = function (id = '', description = '') {
+      let data = {
+        description: description
+      }
+
+      return _put(url + taskEndPoint + '/' + id, data);
     }
 
     return {
       create: create,
       list: list,
-      remove: remove
+      remove: remove,
+      update: update
     }
   })()
 
@@ -84,7 +93,7 @@ module.exports = (function () {
    *
    * @return Promise.
    */
-  var get = function (url = '', data = {}) {
+  var _get = function (url = '', data = {}) {
     return axios.get(url + querystring.stringify(data))
   }
 
@@ -96,7 +105,7 @@ module.exports = (function () {
    *
    * @return Promise.
    */
-  var post = function (url = '', data = {}) {
+  var _post = function (url = '', data = {}) {
     return axios.post(url, data);
   }
 
@@ -108,8 +117,20 @@ module.exports = (function () {
    *
    * @return Promise.
    */
-  var del = function (url = '', data = {}) {
+  var _delete = function (url = '', data = {}) {
     return axios.delete(url);
+  }
+
+  /**
+   * Do a put request to the given url with the given data.
+   *
+   * @param url Url to send the request.
+   * @param data Data to be sent.
+   *
+   * @return Promise.
+   */
+  var _put = function (url = '', data = {}) {
+    return axios.update(url, data);
   }
 
   return {
