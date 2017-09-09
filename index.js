@@ -52,9 +52,18 @@ module.exports = (function () {
       return get(url + taskEndPoint, data);
     }
 
+    var delete = function (id = '') {
+      let data = {
+
+      }
+
+      return delete(url + taskEndPoint + '/' + id, data);
+    }
+
     return {
       create: create,
-      list: list
+      list: list,
+      delete: delete
     }
   })()
 
@@ -89,6 +98,18 @@ module.exports = (function () {
    */
   var post = function (url = '', data = {}) {
     return axios.post(url, data);
+  }
+
+  /**
+   * Do a delete request to the given url with the given data.
+   *
+   * @param url Url to send the request.
+   * @param data Data to be sent.
+   *
+   * @return Promise.
+   */
+  var delete = function (url = '', data = {}) {
+    return axios.delete(url);
   }
 
   return {
