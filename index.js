@@ -81,13 +81,22 @@ module.exports = (function () {
       return _put(url + taskEndPoint + '/' + id + '/plays', data);
     }
 
+    var addTag = function (id = '', tagName = '') {
+      let data = {
+        tagName: tagName
+      }
+
+      return _post(url + taskEndPoint + '/' + id + '/tags', data);
+    }
+
     return {
       create: create,
       list: list,
       remove: remove,
       update: update,
       start: start,
-      stop: stop
+      stop: stop,
+      addTag: addTag
     }
   })()
 
