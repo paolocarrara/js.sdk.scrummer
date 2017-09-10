@@ -44,16 +44,7 @@ module.exports = (function () {
       return _post(url + taskEndPoint, data);
     }
 
-    var list = function () {
-      let data = {
-        orderBy: [
-          { column: 'created_at',order: 'desc' }
-        ],
-        where: [
-          { column: 'status', condition: 'equals', value: '0'}
-        ]
-      };
-
+    var list = function (data = {}) {
       return _post(url + taskEndPoint + '/search', data);
     }
 
