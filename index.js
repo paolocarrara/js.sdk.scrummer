@@ -46,18 +46,15 @@ module.exports = (function () {
 
     var list = function () {
       let data = {
-        orderBy: {
-          column: 'created_at',
-          order: 'desc'
-        },
-        where: {
-          status: {
-            equals: '0'
-          }
-        }
-      }
+        orderBy: [
+          { column: 'created_at',order: 'desc' }
+        ],
+        where: [
+          { column: 'status', condition: 'equals', value: '0'}
+        ]
+      };
 
-      return _get(url + taskEndPoint, data);
+      return _post(url + taskEndPoint, data);
     }
 
     var remove = function (id = '') {
@@ -121,7 +118,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _get = function (url = '', data = {}) {
-    return axios.get(url + querystring.stringify(data))
+    return axios.get(url + '?' + querystring.stringify(data))
   }
 
   /**
