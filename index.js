@@ -54,7 +54,7 @@ module.exports = (function () {
         ]
       };
 
-      return _post(url + taskEndPoint, data);
+      return _post(url + taskEndPoint + '/search', data);
     }
 
     var remove = function (id = '') {
