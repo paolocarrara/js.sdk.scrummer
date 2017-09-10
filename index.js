@@ -60,9 +60,10 @@ module.exports = (function () {
       return _delete(url + taskEndPoint + '/' + id, data);
     }
 
-    var update = function (id = '', description = '') {
+    var update = function (id = '', description = '', status = 0) {
       let data = {
-        description: description
+        description: description,
+        status: status
       }
 
       return _put(url + taskEndPoint + '/' + id, data);
