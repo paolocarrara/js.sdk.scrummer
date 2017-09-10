@@ -93,12 +93,33 @@ module.exports = (function () {
 
   axios.interceptors.request.use(function (config) {
     config.headers = {
-      'Authorization': 'Bearer ' + (window.localStorage.getItem('scrummer.user-token')).replace(/\"/g, '')
+      'Authorization': 'Bearer ' + getUserToken()
     }
     return config;
   }, function (error) {
     return Promise.reject(error);
   });
+
+  /**
+   * Returns fi the user is logged.
+   *
+   * @return bool.
+   */
+  var isLogged = function () {
+    let token = window.localStorage.getItem('scrummer.user-token');
+
+    return token ? true: false;
+  }
+
+  /**
+   * Returns the logged in user token.
+   *
+   * @return string.
+   */
+  var getUserToken = function () {
+    let token = window.localStorage.getItem('scrummer.user-token');
+    return token ? token.replace(/\"/g, '') : '';
+  }
 
   /**
    * Do a get request to the given url with the given data.
@@ -152,6 +173,8 @@ module.exports = (function () {
     hello: hello,
     register: register,
     login: login,
-    tasks: tasks
+    tasks: tasks,
+    getUserToken: getUserToken,
+    isLogged: isLogged
   }
 })()
