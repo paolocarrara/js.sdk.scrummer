@@ -89,6 +89,14 @@ module.exports = (function () {
       return _post(url + taskEndPoint + '/' + id + '/tags', data);
     }
 
+    var listTags = function (id = '') {
+      let data = {
+
+      }
+
+      return _get(url + taskEndPoint + '/' + id + '/tags', data);
+    }
+
     return {
       create: create,
       list: list,
@@ -96,7 +104,8 @@ module.exports = (function () {
       update: update,
       start: start,
       stop: stop,
-      addTag: addTag
+      addTag: addTag,
+      listTags: listTags
     }
   })()
 
