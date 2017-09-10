@@ -46,7 +46,15 @@ module.exports = (function () {
 
     var list = function () {
       let data = {
-
+        orderBy: {
+          column: 'created_at',
+          order: 'desc'
+        },
+        where: {
+          status: {
+            equals: '0'
+          }
+        }
       }
 
       return _get(url + taskEndPoint, data);
