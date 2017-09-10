@@ -92,9 +92,12 @@ module.exports = (function () {
   })()
 
   axios.interceptors.request.use(function (config) {
-    config.headers = {
-      'Authorization': 'Bearer ' + getUserToken()
+    if (isLogged()) {
+      config.headers = {
+        'Authorization': 'Bearer ' + getUserToken()
+      }
     }
+
     return config;
   }, function (error) {
     return Promise.reject(error);
