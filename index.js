@@ -106,8 +106,7 @@ module.exports = (function () {
       start: start,
       stop: stop,
       addTag: addTag,
-      listTags: listTags,
-      removeTag: removeTag
+      listTags: listTags
     }
   })()
 
