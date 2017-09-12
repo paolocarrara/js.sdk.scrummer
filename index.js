@@ -102,7 +102,7 @@ module.exports = (function () {
         tagId: tagId
       }
 
-      return _delete(url + taskEndPoint + '/' + id + '/tags', data);
+      return _delete(url + taskEndPoint + '/' + taskId + '/tags', data);
     }
 
     return {
