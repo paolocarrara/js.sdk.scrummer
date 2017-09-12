@@ -184,7 +184,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _delete = function (url = '', data = {}) {
-    return axios.delete(url);
+    return axios.delete(url, data);
   }
 
   /**
