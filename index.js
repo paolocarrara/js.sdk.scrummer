@@ -97,6 +97,14 @@ module.exports = (function () {
       return _get(url + taskEndPoint + '/' + id + '/tags', data);
     }
 
+    var removeTag = function (taskId = '', tagId = '') {
+      let data = {
+        tagId: tagId
+      }
+
+      return _delete(url + taskEndPoint + '/' + id + '/tags', data);
+    }
+
     return {
       create: create,
       list: list,
@@ -105,7 +113,8 @@ module.exports = (function () {
       start: start,
       stop: stop,
       addTag: addTag,
-      listTags: listTags
+      listTags: listTags,
+      removeTag: removeTag
     }
   })()
 
