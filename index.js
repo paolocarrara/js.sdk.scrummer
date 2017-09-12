@@ -4,6 +4,7 @@ module.exports = (function () {
   const url = 'http://localhost:8000/api';
   const userEndPoint = '/user';
   const taskEndPoint = '/tasks';
+  const tagEndPoint = '/tags';
 
   var hello = function () {
     console.log('Hello');
@@ -97,14 +98,6 @@ module.exports = (function () {
       return _get(url + taskEndPoint + '/' + id + '/tags', data);
     }
 
-    var removeTag = function (taskId = '', tagId = '') {
-      let data = {
-        tagId: tagId
-      }
-
-      return _delete(url + taskEndPoint + '/' + taskId + '/tags', data);
-    }
-
     return {
       create: create,
       list: list,
@@ -115,6 +108,20 @@ module.exports = (function () {
       addTag: addTag,
       listTags: listTags,
       removeTag: removeTag
+    }
+  })()
+
+  var tags = (function () {
+    var remove = function (id = '') {
+      let data = {
+
+      }
+
+      return _delete(url + tagEndPoint + '/' + id, data);
+    }
+
+    return {
+      remove: remove
     }
   })()
 
@@ -204,6 +211,7 @@ module.exports = (function () {
     register: register,
     login: login,
     tasks: tasks,
+    tags: tags,
     getUserToken: getUserToken,
     isLogged: isLogged
   }
