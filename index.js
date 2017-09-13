@@ -5,6 +5,7 @@ module.exports = (function () {
   const userEndPoint = '/user';
   const taskEndPoint = '/tasks';
   const tagEndPoint = '/tags';
+  const projectEndPoint = '/projects';
 
   var hello = function () {
     console.log('Hello');
@@ -124,6 +125,17 @@ module.exports = (function () {
     }
   })()
 
+  var projects = (function () {
+    var create = function (name = '', description = '') {
+      let data = {
+        name: name,
+        description: description
+      }
+
+      return _post(url + projectEndPoint, data);
+    }
+  })()
+
   axios.interceptors.request.use(function (config) {
     if (isLogged()) {
       config.headers = {
@@ -211,6 +223,7 @@ module.exports = (function () {
     login: login,
     tasks: tasks,
     tags: tags,
+    projects: projects
     getUserToken: getUserToken,
     isLogged: isLogged
   }
