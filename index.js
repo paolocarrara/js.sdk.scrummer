@@ -135,8 +135,17 @@ module.exports = (function () {
       return _post(url + projectEndPoint, data);
     }
 
+    var list = function () {
+      let data = {
+
+      }
+
+      return _get(url + projectEndPoint, data);
+    }
+
     return {
-      create: create
+      create: create,
+      list: list
     }
   })()
 
