@@ -1,6 +1,6 @@
 {
   "name": "scrummer",
-  "version": "1.11.4",
+  "version": "1.12.0",
   "description": "Scrummer Javascript SDK",
   "main": "index.js",
   "scripts": {
