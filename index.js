@@ -223,7 +223,7 @@ module.exports = (function () {
     login: login,
     tasks: tasks,
     tags: tags,
-    projects: projects
+    projects: projects,
     getUserToken: getUserToken,
     isLogged: isLogged
   }
