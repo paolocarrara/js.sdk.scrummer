@@ -134,6 +134,10 @@ module.exports = (function () {
 
       return _post(url + projectEndPoint, data);
     }
+
+    return {
+      create: create
+    }
   })()
 
   axios.interceptors.request.use(function (config) {
