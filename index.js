@@ -143,9 +143,18 @@ module.exports = (function () {
       return _get(url + projectEndPoint, data);
     }
 
+    var view = function (id = '') {
+      let data = {
+
+      }
+
+      return _get(url + projectEndPoint + '/' + id, data);
+    }
+
     return {
       create: create,
-      list: list
+      list: list,
+      view: view
     }
   })()
 
