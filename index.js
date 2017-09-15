@@ -38,12 +38,12 @@ module.exports = (function () {
      *
      * @return Promise.
      */
-    var create = function (description = '') {
+    var create = function (projectId = '', description = '') {
       let data = {
         description: description
       }
 
-      return _post(url + taskEndPoint, data);
+      return _post(url + projectEndPoint + '/' + projectId + '/' + taskEndPoint, data);
     }
 
     var list = function (data = {}) {
