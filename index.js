@@ -47,7 +47,7 @@ module.exports = (function () {
     }
 
     var list = function (data = {}) {
-      return _post(url + taskEndPoint + '/search', data);
+      return _post(url + projectEndPoint + '/' + projectId + taskEndPoint + '/search', data);
     }
 
     var remove = function (id = '') {
