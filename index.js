@@ -46,7 +46,7 @@ module.exports = (function () {
       return _post(url + projectEndPoint + '/' + projectId + taskEndPoint, data);
     }
 
-    var list = function (projectId = '', data = {}) {
+    var list = function (projectId = '') {
       return _post(url + projectEndPoint + '/' + projectId + taskEndPoint + '/search', data);
     }
 
