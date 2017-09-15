@@ -43,7 +43,7 @@ module.exports = (function () {
         description: description
       }
 
-      return _post(url + projectEndPoint + '/' + projectId + '/' + taskEndPoint, data);
+      return _post(url + projectEndPoint + '/' + projectId + taskEndPoint, data);
     }
 
     var list = function (data = {}) {
