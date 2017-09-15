@@ -47,6 +47,7 @@ module.exports = (function () {
     }
 
     var list = function (projectId = '') {
+      console.log('projectId:', projectId);
       return _post(url + projectEndPoint + '/' + projectId + taskEndPoint + '/search', data);
     }
 
