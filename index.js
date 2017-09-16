@@ -54,7 +54,7 @@ module.exports = (function () {
       return _post(url + projectEndPoint + '/' + projectId + taskEndPoint + '/search', data);
     }
 
-    var remove = function (taskId = '') {
+    var remove = function (projectId = '', taskId = '') {
       let data = {
 
       }
@@ -62,7 +62,7 @@ module.exports = (function () {
       return _delete(url + projectEndPoint + '/' + projectId + taskEndPoint + taskId, data);
     }
 
-    var update = function (taskId = '', description = '', status = 0) {
+    var update = function (projectId = '', taskId = '', description = '', status = 0) {
       let data = {
         description: description,
         status: status
