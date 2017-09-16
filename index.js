@@ -59,7 +59,7 @@ module.exports = (function () {
 
       }
 
-      return _delete(url + projectEndPoint + '/' + projectId + taskEndPoint + taskId, data);
+      return _delete(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId, data);
     }
 
     var update = function (projectId = '', taskId = '', description = '', status = 0) {
@@ -68,7 +68,7 @@ module.exports = (function () {
         status: status
       }
 
-      return _put(url + projectEndPoint + '/' + projectId + taskEndPoint + taskId, data);
+      return _put(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId, data);
     }
 
     var start = function (id = '') {
