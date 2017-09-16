@@ -51,25 +51,24 @@ module.exports = (function () {
 
       }
 
-      console.log('projectId:', projectId);
       return _post(url + projectEndPoint + '/' + projectId + taskEndPoint + '/search', data);
     }
 
-    var remove = function (id = '') {
+    var remove = function (taskId = '') {
       let data = {
 
       }
 
-      return _delete(url + taskEndPoint + '/' + id, data);
+      return _delete(url + projectEndPoint + '/' + projectId + taskEndPoint + taskId, data);
     }
 
-    var update = function (id = '', description = '', status = 0) {
+    var update = function (taskId = '', description = '', status = 0) {
       let data = {
         description: description,
         status: status
       }
 
-      return _put(url + taskEndPoint + '/' + id, data);
+      return _put(url + projectEndPoint + '/' + projectId + taskEndPoint + taskId, data);
     }
 
     var start = function (id = '') {
