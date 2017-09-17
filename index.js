@@ -87,20 +87,28 @@ module.exports = (function () {
       return _put(url + taskEndPoint + '/' + id + '/plays', data);
     }
 
-    var addTag = function (id = '', tagName = '') {
+    var addTag = function (projectId = '', taskId = '', tagName = '') {
       let data = {
         tagName: tagName
       }
 
-      return _post(url + taskEndPoint + '/' + id + '/tags', data);
+      return _post(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId + tagEndPoint, data);
     }
 
-    var listTags = function (id = '') {
+    var listTags = function (projectId = '', taskId = '') {
       let data = {
 
       }
 
-      return _get(url + taskEndPoint + '/' + id + '/tags', data);
+      return _get(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId + tagEndPoint, data);
+    }
+
+    var removeTag = function (projectId = '', taskId = '', tagId = '') {
+      let data = {
+
+      }
+
+      return _delete(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId + tagEndPoint + '/' + tagId, data);
     }
 
     return {
@@ -112,20 +120,6 @@ module.exports = (function () {
       stop: stop,
       addTag: addTag,
       listTags: listTags
-    }
-  })()
-
-  var tags = (function () {
-    var remove = function (id = '') {
-      let data = {
-
-      }
-
-      return _delete(url + tagEndPoint + '/' + id, data);
-    }
-
-    return {
-      remove: remove
     }
   })()
 
@@ -248,7 +242,6 @@ module.exports = (function () {
     register: register,
     login: login,
     tasks: tasks,
-    tags: tags,
     projects: projects,
     getUserToken: getUserToken,
     isLogged: isLogged
