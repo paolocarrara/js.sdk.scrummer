@@ -150,10 +150,19 @@ module.exports = (function () {
       return _get(url + projectEndPoint + '/' + id, data);
     }
 
+    var remove = function (id = '') {
+      let data = {
+
+      }
+
+      return _delete(url + projectEndPoint + '/' + id, data);
+    }
+
     return {
       create: create,
       list: list,
-      view: view
+      view: view,
+      remove: remove
     }
   })()
 
