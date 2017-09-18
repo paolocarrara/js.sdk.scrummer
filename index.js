@@ -158,11 +158,21 @@ module.exports = (function () {
       return _delete(url + projectEndPoint + '/' + id, data);
     }
 
+    var update = function (id = '', name = '', description = '') {
+      let data = {
+        name: name,
+        description: description
+      }
+
+      return _put(url + projectEndPoint + '/' + id, data);
+    }
+
     return {
       create: create,
       list: list,
       view: view,
-      remove: remove
+      remove: remove,
+      update: update
     }
   })()
 
