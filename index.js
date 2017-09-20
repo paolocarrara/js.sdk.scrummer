@@ -179,7 +179,7 @@ module.exports = (function () {
     }
   })()
 
-  axios.interceptors.request.use(function (config) {
+  axiosInstance.interceptors.request.use(function (config) {
     if (isLogged()) {
       config.headers = {
         'Authorization': 'Bearer ' + getUserToken()
