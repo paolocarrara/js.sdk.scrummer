@@ -6,6 +6,9 @@ module.exports = (function () {
   const taskEndPoint = '/tasks';
   const tagEndPoint = '/tags';
   const projectEndPoint = '/projects';
+  const axiosInstance = axios.create({
+    headers: {'Accept': 'application/json, text/plain, */*'}
+  });
 
   var hello = function () {
     console.log('Hello');
@@ -218,7 +221,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _get = function (url = '', data = {}) {
-    return axios.get(url + '?' + querystring.stringify(data))
+    return axiosInstance.get(url + '?' + querystring.stringify(data))
   }
 
   /**
@@ -230,7 +233,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _post = function (url = '', data = {}) {
-    return axios.post(url, data);
+    return axiosInstance.post(url, data);
   }
 
   /**
@@ -242,7 +245,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _delete = function (url = '', data = {}) {
-    return axios.delete(url, data);
+    return axiosInstance.delete(url, data);
   }
 
   /**
@@ -254,7 +257,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _put = function (url = '', data = {}) {
-    return axios.put(url, data);
+    return axiosInstance.put(url, data);
   }
 
   return {
