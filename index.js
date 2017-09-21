@@ -6,9 +6,6 @@ module.exports = (function () {
   const taskEndPoint = '/tasks';
   const tagEndPoint = '/tags';
   const projectEndPoint = '/projects';
-  const axiosInstance = axios.create({
-    headers: {'Accept': 'application/json, text/plain, */*'}
-  });
 
   var hello = function () {
     console.log('Hello');
@@ -179,10 +176,11 @@ module.exports = (function () {
     }
   })()
 
-  axiosInstance.interceptors.request.use(function (config) {
+  axios.interceptors.request.use(function (config) {
     if (isLogged()) {
       config.headers = {
-        'Authorization': 'Bearer ' + getUserToken()
+        'Authorization': 'Bearer ' + getUserToken(),
+        'Accept': 'application/json'
       }
     }
 
@@ -221,7 +219,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _get = function (url = '', data = {}) {
-    return axiosInstance.get(url + '?' + querystring.stringify(data))
+    return axios.get(url + '?' + querystring.stringify(data))
   }
 
   /**
@@ -233,7 +231,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _post = function (url = '', data = {}) {
-    return axiosInstance.post(url, data);
+    return axios.post(url, data);
   }
 
   /**
@@ -245,7 +243,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _delete = function (url = '', data = {}) {
-    return axiosInstance.delete(url, data);
+    return axios.delete(url, data);
   }
 
   /**
@@ -257,7 +255,7 @@ module.exports = (function () {
    * @return Promise.
    */
   var _put = function (url = '', data = {}) {
-    return axiosInstance.put(url, data);
+    return axios.put(url, data);
   }
 
   return {
