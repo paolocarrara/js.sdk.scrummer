@@ -120,6 +120,14 @@ module.exports = (function () {
       return _get(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId + commentsEndPoint);
     }
 
+    var addComment = function (projectId = '', taskId = '', comment) {
+      let data = {
+        comment: comment
+      };
+
+      return _post(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId + commentsEndPoint, data);
+    }
+
     return {
       create: create,
       list: list,
@@ -130,7 +138,8 @@ module.exports = (function () {
       addTag: addTag,
       listTags: listTags,
       removeTag: removeTag,
-      getComments: getComments
+      getComments: getComments,
+      addComment: addComment
     }
   })()
 
