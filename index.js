@@ -6,6 +6,7 @@ module.exports = (function () {
   const taskEndPoint = '/tasks';
   const tagEndPoint = '/tags';
   const projectEndPoint = '/projects';
+  const commentsEndPoint = '/comments'
 
   var hello = function () {
     console.log('Hello');
@@ -106,9 +107,17 @@ module.exports = (function () {
     var removeTag = function (projectId = '', taskId = '', tagId = '') {
       let data = {
 
-      }
+      };
 
       return _delete(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId + tagEndPoint + '/' + tagId, data);
+    }
+
+    var getComments = function (projectId = '', taskId = '') {
+      let data = {
+
+      };
+
+      return _get(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId + commentsEndPoint);
     }
 
     return {
@@ -120,7 +129,8 @@ module.exports = (function () {
       stop: stop,
       addTag: addTag,
       listTags: listTags,
-      removeTag: removeTag
+      removeTag: removeTag,
+      getComments: getComments
     }
   })()
 
