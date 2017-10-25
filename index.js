@@ -32,6 +32,20 @@ module.exports = (function () {
     return _post(url + userEndPoint + '/login', data);
   }
 
+  var users = (function () {
+    var search = function (term) {
+      let data = {
+        term: term
+      };
+
+      return _post(url + userEndPoint + '/search', data);
+    }
+
+    return {
+      search: search
+    }
+  })()
+
   var tasks = (function (outerThis) {
     /**
      * Creates a task.
@@ -281,6 +295,7 @@ module.exports = (function () {
     hello: hello,
     register: register,
     login: login,
+    users: users,
     tasks: tasks,
     projects: projects,
     getUserToken: getUserToken,
