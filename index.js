@@ -61,6 +61,14 @@ module.exports = (function () {
       return _post(url + projectEndPoint + '/' + projectId + taskEndPoint, data);
     }
 
+    var view = function (projectId = '', taskId = '') {
+      let data = {
+
+      }
+
+      return _get(url + projectEndPoint + '/' + projectId + taskEndPoint + '/' + taskId);
+    }
+
     var list = function (projectId = '') {
       let data = {
 
@@ -145,6 +153,7 @@ module.exports = (function () {
     return {
       create: create,
       list: list,
+      view: view,
       remove: remove,
       update: update,
       start: start,
