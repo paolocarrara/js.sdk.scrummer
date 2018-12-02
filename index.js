@@ -218,13 +218,18 @@ module.exports = (function () {
       return _post(url + projectEndPoint + '/members', data);
     };
 
+    var listMembers = function (projectId) {
+      return _get(url + projectEndPoint + '/members/' + projectId)
+    };
+
     return {
       create: create,
       list: list,
       view: view,
       remove: remove,
       update: update,
-      addMember: addMember
+      addMember: addMember,
+      listMembers: listMembers
     }
   })()
 
