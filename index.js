@@ -6,7 +6,7 @@ module.exports = (function () {
   const taskEndPoint = '/tasks';
   const tagEndPoint = '/tags';
   const projectEndPoint = '/projects';
-  const commentsEndPoint = '/comments'
+  const commentsEndPoint = '/comments';
 
   var hello = function () {
     console.log('Hello');
@@ -209,12 +209,22 @@ module.exports = (function () {
       return _put(url + projectEndPoint + '/' + id, data);
     }
 
+    var addMember = function (projectId, userId) {
+      let data = {
+        projectId: projectId,
+        userId: userId
+      }
+
+      return _post(url + projectEndPoint + '/members', data);
+    };
+
     return {
       create: create,
       list: list,
       view: view,
       remove: remove,
-      update: update
+      update: update,
+      addMember: addMember
     }
   })()
 
