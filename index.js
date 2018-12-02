@@ -211,15 +211,14 @@ module.exports = (function () {
 
     var addMember = function (projectId, userId) {
       let data = {
-        projectId: projectId,
         userId: userId
-      }
+      };
 
-      return _post(url + projectEndPoint + '/members', data);
+      return _post(url + projectEndPoint + '/' + projectId + '/members', data);
     };
 
     var listMembers = function (projectId) {
-      return _get(url + projectEndPoint + '/members/' + projectId)
+      return _get(url + projectEndPoint + '/' + projectId + '/members/');
     };
 
     return {
